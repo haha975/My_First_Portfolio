@@ -1,0 +1,422 @@
+/* ======== GLOBAL STYLES & VARIABLES ======== */
+:root {
+    --primary-violet: #8A2BE2; /* Blue Violet */
+    --primary-violet-darker: #7a1fbf;
+    --dark-bg: #120A1C;         /* Very dark purple */
+    --card-bg: #1A0F2A;         /* Slightly lighter purple for cards */
+    --light-text: #F0F0F0;      /* Off-white */
+    --secondary-text: #b3b3b3;  /* Gray for secondary text */
+    --font-primary: 'Poppins', sans-serif;
+    --section-padding: 6rem 5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* This creates the smooth scroll effect */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Offset for the fixed header */
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; text-align: center; color: var(--primary-violet); }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--secondary-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-violet);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-violet-darker);
+}
+
+section {
+    padding: var(--section-padding);
+}
+
+/* ======== HEADER / NAVIGATION ======== */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(18, 10, 28, 0.85); /* Translucent dark bg */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-bg);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-text);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2.5rem;
+}
+
+.nav-links a {
+    font-weight: 600;
+    color: var(--secondary-text);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Active link indicator */
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--light-text);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-violet);
+    border-radius: 2px;
+}
+
+/* ======== CALL TO ACTION (CTA) BUTTONS ======== */
+.cta-button {
+    display: inline-block;
+    background: var(--primary-violet);
+    color: var(--light-text);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--primary-violet-darker);
+    color: var(--light-text);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+}
+
+.cta-button-secondary {
+    display: inline-block;
+    background: var(--card-bg);
+    color: var(--light-text);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-violet);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background: var(--primary-violet);
+    color: var(--light-text);
+}
+
+/* ======== HERO SECTION (HOME) ======== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap-reverse; /* Image on right, but stacks on top on mobile */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-weight: 700;
+}
+
+.hero-content h2 {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 0 1 350px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--card-bg);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.5); /* Violet glow */
+}
+
+/* ======== STATS SECTION ======== */
+.stats-section {
+    background: var(--card-bg);
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--dark-bg);
+    border-radius: 10px;
+    flex-basis: 250px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-violet);
+    margin: 0;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    color: var(--secondary-text);
+    margin: 0;
+}
+
+/* ======== ABOUT SECTION ======== */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.skill-tag {
+    background: var(--card-bg);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--card-bg);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    border-color: var(--primary-violet);
+    color: var(--primary-violet);
+}
+
+/* ======== PROJECTS SECTION ======== */
+.projects-section {
+    background: var(--dark-bg); /* Alternating background */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-tags {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tags .skill-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--dark-bg);
+}
+
+.project-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* ======== RESUME SECTION ======== */
+.resume-section {
+    background: var(--card-bg);
+    text-align: center;
+}
+
+.resume-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* ======== CONTACT SECTION ======== */
+.contact-section {
+    text-align: center;
+}
+
+.contact-email {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0 2rem 0;
+    color: var(--light-text);
+}
+
+.contact-email:hover {
+    color: var(--primary-violet);
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 1.5rem;
+    color: var(--secondary-text);
+}
+
+.social-links a:hover {
+    color: var(--primary-violet);
+}
+
+/* ======== FOOTER ======== */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background: var(--card-bg);
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+
+/* ======== RESPONSIVE (Mobile) ======== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+
+    /* Mobile Nav */
+    .nav-links {
+        /* This hides the nav on mobile. 
+           A full mobile menu requires more JS, 
+           so for simplicity, we'll just stack them. */
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Hide for now. Add a burger menu JS to toggle this. */
+    }
+    
+    /* Simple stack for demo */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 0.25rem 0.5rem;
+    }
+
+
+    .hero-section {
+        padding-top: 150px; /* Account for stacked nav */
+        text-align: center;
+    }
+    .hero-content h2 {
+        text-align: center;
+    }
+    .hero-image {
+        margin-bottom: 2rem;
+    }
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .social-links a {
+        margin: 0 0.75rem;
+    }
+}
